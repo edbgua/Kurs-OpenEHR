@@ -1,0 +1,43 @@
+archetype (adl_version=1.4; uid=f6883886-aec0-4a29-943b-fb55dc77f86e)
+	openEHR-EHR-EVALUATION.smoking_status.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2023-12-12">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"24d34b9ec95c7bf8da99e00aa1d74773">
+		["build_uid"] = <"bddc88a3-f7cc-3e47-84f3-8ce61d45ffdf">
+	>
+
+definition
+	EVALUATION[at0000] matches {*}    -- Smoking status
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Smoking status">
+					description = <"Smoking status">
+				>
+			>
+		>
+	>
