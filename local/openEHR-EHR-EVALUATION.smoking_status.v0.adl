@@ -23,12 +23,34 @@ description
 		["original_namespace"] = <"org.openehr">
 		["original_publisher"] = <"openEHR Foundation">
 		["custodian_namespace"] = <"org.openehr">
-		["MD5-CAM-1.0.1"] = <"24d34b9ec95c7bf8da99e00aa1d74773">
+		["MD5-CAM-1.0.1"] = <"07cc9807ae686f160fc0541ab2960a36">
 		["build_uid"] = <"bddc88a3-f7cc-3e47-84f3-8ce61d45ffdf">
 	>
 
 definition
-	EVALUATION[at0000] matches {*}    -- Smoking status
+	EVALUATION[at0000] matches {    -- Smoking status
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Smoking status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0004,    -- Never smoked
+									at0005,    -- Smoked previously
+									at0006]    -- Smokes
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0002] matches {*}    -- Item tree
+		}
+	}
 
 ontology
 	term_definitions = <
@@ -37,6 +59,30 @@ ontology
 				["at0000"] = <
 					text = <"Smoking status">
 					description = <"Smoking status">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Smoking status">
+					description = <"Status for whether the patient smokes, smoked previously or never smoked.">
+				>
+				["at0004"] = <
+					text = <"Never smoked">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Smoked previously">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Smokes">
+					description = <"">
 				>
 			>
 		>
